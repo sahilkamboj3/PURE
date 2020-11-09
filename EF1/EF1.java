@@ -6,7 +6,6 @@ public class EF1 {
     private int agents;
     private int items;
     private HashMap<Integer, int[]> valuations = new HashMap<Integer, int[]>();
-    // private HashMap<Integer, int[]> allocations = new HashMap<Integer, int[]>();
     private HashMap<Integer, String> allocations = new HashMap<Integer, String>();
 
     public EF1() {
@@ -37,7 +36,6 @@ public class EF1 {
 
         // initialize allocations hashmap
         for (int agent = 0; agent < numAgents; agent++) {
-            // this.allocations.put(agent, new int[numItems]);
             this.allocations.put(agent, "");
         }
 
