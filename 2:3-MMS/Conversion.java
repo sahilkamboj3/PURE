@@ -1,5 +1,6 @@
 import java.util.*;
 import java.awt.*;
+import java.lang.reflect.Array;
 
 public class Conversion {
 
@@ -13,7 +14,8 @@ public class Conversion {
 
 		for (Integer key : this.initAllocations.keySet()) {
 			int[] curArr = hashSetToArray(this.initAllocations.get(key));
-			selectSort(curArr);
+			// selectSort(curArr);
+			// Arrays.sort(curArr);
 
 			HashSet<Integer> sortedHashSet = new HashSet<Integer>();
 
@@ -27,19 +29,29 @@ public class Conversion {
 
 	// sort array
 	public void selectSort(int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			int j = i + 1;
-			int min = i;
+		Arrays.sort(arr);
+		// int num = arr[0];
+		// arr[0] = arr[1];
+		// arr[1] = num;
+		// for (int i = 0; i < arr.length - 1; i++) {
+		// System.out.print(arr[i] + ", ");
+		// int minIdx = i;
 
-			while (j < arr.length) {
-				if (arr[j] < arr[min])
-					min = j;
-				j += 1;
-			}
-			int cur = arr[min];
-			arr[min] = arr[i];
-			arr[i] = cur;
-		}
+		// for (int j = i + 1; j < arr.length; j++) {
+		// if (arr[j] < arr[minIdx]) {
+		// minIdx = j;
+		// }
+		// }
+
+		// int curNum = arr[i];
+		// int smallestNum = arr[minIdx];
+		// System.out.print(i + ": " + curNum + " " + minIdx + ": " + smallestNum + ",
+		// ");
+
+		// arr[i] = smallestNum;
+		// arr[minIdx] = curNum;
+		// }
+		// System.out.println("\n");
 	}
 
 	// convert HashSet to array
