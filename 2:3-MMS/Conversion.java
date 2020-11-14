@@ -32,14 +32,13 @@ public class Conversion {
 			int min = i;
 
 			while (j < arr.length) {
-				if (arr[j] < arr[i])
+				if (arr[j] < arr[min])
 					min = j;
 				j += 1;
 			}
-
-			int cur = arr[i];
-			arr[i] = arr[min];
-			arr[min] = cur;
+			int cur = arr[min];
+			arr[min] = arr[i];
+			arr[i] = cur;
 		}
 	}
 
@@ -60,5 +59,9 @@ public class Conversion {
 	// getter methods
 	public HashMap<Integer, HashSet<Integer>> getSortedAllocations() {
 		return this.sortedAllocations;
+	}
+
+	public String returnInitMMS() {
+		return this.initMMS;
 	}
 }

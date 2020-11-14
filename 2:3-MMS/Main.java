@@ -19,7 +19,9 @@ public class Main {
 
 		System.out.println("Original Allocations");
 		genFuncs.printHashMap(vals);
+
 		System.out.println();
+
 		System.out.println("Sorted Allocations");
 		genFuncs.printHashMap(sortedVals);
 	}
