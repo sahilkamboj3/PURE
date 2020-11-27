@@ -1,0 +1,19 @@
+.DS_Store
+
+# 1:2-MMS
+1:2-MMS/Main.class
+1:2-MMS/MMS.class
+
+# 2:3-MMS
+2:3-MMS/Main.class
+2:3-MMS/AllocGenerator.class
+2:3-MMS/Sorting.class
+2:3-MMS/Util.class
+2:3-MMS/.DS_Store
+
+2:3-MMS/DAG/DAG.class
+2:3-MMS/DAG/Node.class
+
+# EF1
+EF1/Main.class
+EF1/EF1.class

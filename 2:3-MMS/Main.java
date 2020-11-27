@@ -1,13 +1,9 @@
 import java.util.*;
 import java.awt.*;
 
-// import DAG.Test;
-
 public class Main {
 
 	public static void main(String[] args) {
-		// Test test = new Test();
-
 		Util utilFuncs = new Util();
 
 		int numAgents = 5;
