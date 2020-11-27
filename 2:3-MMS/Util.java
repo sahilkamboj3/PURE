@@ -1,8 +1,8 @@
 import java.util.*;
 import java.awt.*;
 
-public class General {
-    public General() {
+public class Util {
+    public Util() {
     }
 
     public void printHashMap(HashMap<Integer, HashSet<Integer>> hM) {

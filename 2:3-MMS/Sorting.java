@@ -2,7 +2,7 @@ import java.util.*;
 import java.awt.*;
 import java.lang.reflect.Array;
 
-public class Conversion {
+public class Sorting {
 
 	private HashMap<Integer, HashSet<Integer>> initAllocations;
 	private int[][] sortedAllocations;
@@ -10,7 +10,7 @@ public class Conversion {
 	private int numAgents;
 	private int numItems;
 
-	public Conversion(String initMMS, HashMap<Integer, HashSet<Integer>> initAllocations, int numItems, int numAgents) {
+	public Sorting(String initMMS, HashMap<Integer, HashSet<Integer>> initAllocations, int numItems, int numAgents) {
 		this.initMMS = initMMS;
 		this.initAllocations = initAllocations;
 		this.numAgents = numAgents;

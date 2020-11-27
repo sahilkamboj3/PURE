@@ -1,7 +1,7 @@
 import java.util.*;
 import java.awt.*;
 
-public class ValuesGenerator {
+public class AllocGenerator {
     private int numAgents;
     private int numItems;
     private int minVal;
@@ -9,7 +9,7 @@ public class ValuesGenerator {
     private HashMap<Integer, HashSet<Integer>> agentValues = new HashMap<Integer, HashSet<Integer>>();
     private Random rand;
 
-    public ValuesGenerator(int numAgents, int numItems, int minVal, int maxVal) {
+    public AllocGenerator(int numAgents, int numItems, int minVal, int maxVal) {
         this.numAgents = numAgents;
         this.numItems = numItems;
         this.minVal = minVal;
@@ -22,7 +22,7 @@ public class ValuesGenerator {
         }
     }
 
-    public ValuesGenerator(int numAgents, int numItems, int maxVal) {
+    public AllocGenerator(int numAgents, int numItems, int maxVal) {
         this.numAgents = numAgents;
         this.numItems = numItems;
         this.maxVal = maxVal;
