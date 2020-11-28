@@ -9,7 +9,7 @@ public class Node {
 
     private int[] itemAllocs;
     private int[] curItems;
-    private int itemsValue;
+    private int totalValue;
 
     private Node[] nodesEnvied;
     private Node[] nodesThatEnvy;
@@ -20,18 +20,18 @@ public class Node {
         this.curItems = new int[itemVals.length];
         this.nodesEnvied = new Node[numAgents];
         this.nodesThatEnvy = new Node[numAgents];
-        this.itemsValue = 0;
+        this.totalValue = 0;
     }
 
-    public void addNodesEnvied (Node agent) {
+    public void addNodesEnvied(Node agent) {
         this.nodesEnvied = ArrayUtils.add(this.nodesEnvied, agent);
     }
 
-    public void addNodesThatEnvy (Node agent) {
+    public void addNodesThatEnvy(Node agent) {
         this.nodesThatEnvy = ArrayUtils.add(this.nodesThatEnvy, agent);
     }
 
-    public void removeNodesEnvied (Node agent) {
+    public void removeNodesEnvied(Node agent) {
         Node[] newArr = new Node[this.nodesEnvied.length];
 
         for (int i = 0; i < this.nodesEnvied.length; i++) {
@@ -45,7 +45,7 @@ public class Node {
         this.nodesEnvied = newArr;
     }
 
-    public void removeNodesThatEnvy (Node agent) {
+    public void removeNodesThatEnvy(Node agent) {
         Node[] newArr = new Node[this.nodesThatEnvy.length];
 
         for (int i = 0; i < this.nodesThatEnvy.length; i++) {
@@ -59,9 +59,9 @@ public class Node {
         this.nodesThatEnvy = newArr;
     }
 
-    public void addItem (int item) {
+    public void addItem(int item) {
         this.curItems = ArrayUtils.add(this.curItems, item);
-        this.itemsValue = findItemValues();
+        this.totalValue = findItemValues();
     }
 
     private int findItemValues() {
@@ -74,11 +74,35 @@ public class Node {
         return sum;
     }
 
+    public boolean isSink() {
+        if (this.nodesEnvied.length == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isSource() {
+        if (this.nodesThatEnvy.length == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public int evaluate(int[] items) {
+        int sum = 0;
+
+        for (int i = 0; i < items.length; i++) {
+            sum += this.itemAllocs[items[i]];
+        }
+
+        return sum;
+    }
+
     // override .equals() method
     @Override
     public boolean equals(Node agent) {
-        int id = agent.getAgentNum();
-        
+        int id = agent.getId();
+
         if (id == this.id) {
             return true;
         }
@@ -87,39 +111,43 @@ public class Node {
     }
 
     // getter methods
-    public int getAgentNum() {
-       return this.agent; 
+    public int getId() {
+        return this.id;
+    }
+
+    public int getTotalValue() {
+        return this.totalValue;
     }
 
     public int[] getCurItems() {
-       return this.curItems; 
+        return this.curItems;
     }
 
     public int[] getItemAllocs() {
-       return this.itemAllocs; 
+        return this.itemAllocs;
     }
 
     public Node[] getNodesEnvied() {
-       return this.nodesEnvied; 
+        return this.nodesEnvied;
     }
-    
+
     public Node[] getNodesThatEnvy() {
-       return this.nodesThatEnvy; 
+        return this.nodesThatEnvy;
     }
-   
-   // setter methods
-    public int[] setCurItems(int[] curItems) {
-       this.curItems = curItems;
-       return curItems;
+
+    // setter methods
+    public int[] setItemAllocs(int[] itemAllocs) {
+        this.itemAllocs = itemAllocs;
+        return itemAllocs;
     }
 
     public Node[] setNodesEnvied(Node[] newNodes) {
-       this.nodesEnvied = newNodes; 
-       return newNodes;
+        this.nodesEnvied = newNodes;
+        return newNodes;
     }
-    
+
     public Node[] setNodesThatEnvy(Node[] newNodes) {
         this.nodesThatEnvy = newNodes;
-        return newNodes; 
+        return newNodes;
     }
 }
